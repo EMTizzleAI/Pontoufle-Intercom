@@ -1,0 +1,3 @@
+package ai.emtizzle.pontoufleintercom;
+import android.app.PendingIntent; import android.appwidget.AppWidgetManager; import android.appwidget.AppWidgetProvider; import android.content.Context; import android.content.Intent; import android.widget.RemoteViews;
+public class PontoufleWidget extends AppWidgetProvider { @Override public void onUpdate(Context c, AppWidgetManager m, int[] ids) { for (int id:ids) { RemoteViews v=new RemoteViews(c.getPackageName(),R.layout.widget_pontoufle); Intent i=new Intent(c,MainActivity.class); i.putExtra("listen_now",true); PendingIntent p=PendingIntent.getActivity(c,id,i,PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE); v.setOnClickPendingIntent(R.id.widget_root,p); m.updateAppWidget(id,v); } } }
