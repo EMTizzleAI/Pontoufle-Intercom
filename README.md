@@ -4,6 +4,12 @@ A tiny, extra-fluffy Android home-screen voice widget for Muse.
 
 **Squish the blob → speak → capture the request → cleanly hand off to Muse.**
 
+## v0.2 — Pontoufle has a voice
+- High, bright clockwork pitch with a slower, sultry cadence
+- Boot transmission: “Pontoufle online, darling. Who are we bothering today?”
+- Widget launches wait for her greeting before opening the microphone
+- Keeps the existing first-boot radio crackle intact
+
 ## v0.1
 - Real Android home-screen widget
 - Extra-floofy Pontoufle mascot
