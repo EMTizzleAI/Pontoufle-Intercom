@@ -4,6 +4,12 @@ A tiny, extra-fluffy Android home-screen voice widget for Muse.
 
 **Squish the blob → speak → capture the request → cleanly hand off to Muse.**
 
+## v0.3 — The intercom connects
+- Automatically shares each captured voice request directly to Muse
+- Uses Android's standard text-sharing interface with Muse's verified app package
+- Falls back to copying the request and opening Muse if direct sharing is unavailable
+- The OPEN MUSE button retransmits the latest captured request
+
 ## v0.2 — Pontoufle has a voice
 - High, bright clockwork pitch with a slower, sultry cadence
 - Boot transmission: “Pontoufle online, darling. Who are we bothering today?”
