@@ -2,7 +2,10 @@ package ai.emtizzle.pontoufleintercom;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -13,6 +16,7 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -30,6 +34,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private TextToSpeech voice;
     private boolean greetOnVoiceReady;
     private boolean listenAfterGreeting;
+    private String capturedRequest;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,13 +133,44 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             ArrayList<String> words =
                     data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
             if (words != null && !words.isEmpty()) {
-                transcript.setText(words.get(0));
-                status.setText("REQUEST CAPTURED ✨");
+                capturedRequest = words.get(0);
+                transcript.setText(capturedRequest);
+                status.setText("TRANSMITTING TO MUSE ✨");
+                sendToMuse(capturedRequest);
             }
         }
     }
 
     private void openMuse() {
+        if (capturedRequest != null && !capturedRequest.trim().isEmpty()) {
+            sendToMuse(capturedRequest);
+            return;
+        }
+        launchMuse();
+    }
+
+    private void sendToMuse(String request) {
+        Intent share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_TEXT, request);
+        share.setPackage("com.facebook.aura");
+
+        try {
+            startActivity(share);
+            status.setText("REQUEST DELIVERED TO MUSE ✨");
+        } catch (ActivityNotFoundException error) {
+            ClipboardManager clipboard =
+                    (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+            clipboard.setPrimaryClip(ClipData.newPlainText("Pontoufle request", request));
+            status.setText("REQUEST COPIED — PASTE IN MUSE ✨");
+            Toast.makeText(this,
+                    "Pontoufle copied your request. Paste it into Muse.",
+                    Toast.LENGTH_LONG).show();
+            launchMuse();
+        }
+    }
+
+    private void launchMuse() {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://applink.muse.ai"));
         try {
             startActivity(intent);
