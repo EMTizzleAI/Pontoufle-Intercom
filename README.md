@@ -4,6 +4,9 @@ A tiny, extra-fluffy Android home-screen voice widget for Muse.
 
 **Squish the blob → speak → capture the request → cleanly hand off to Muse.**
 
+## v0.3.1 — Say her name correctly
+- Keeps the written Pontoufle brand while giving Android TTS the phonetic “Pontoof” pronunciation
+
 ## v0.3 — The intercom connects
 - Automatically shares each captured voice request directly to Muse
 - Uses Android's standard text-sharing interface with Muse's verified app package
