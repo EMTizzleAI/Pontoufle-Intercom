@@ -26,7 +26,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private static final int MIC = 42;
     private static final String BOOT_UTTERANCE = "pontoufle_boot";
     private static final String BOOT_LINE =
-            "Pontoufle online, darling. Who are we bothering today?";
+            "Pontoof online, darling. Who are we bothering today?";
 
     private final Handler mainHandler = new Handler(Looper.getMainLooper());
     private TextView status;
