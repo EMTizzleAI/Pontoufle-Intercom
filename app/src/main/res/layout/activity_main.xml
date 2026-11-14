@@ -1,1 +1,74 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:padding="28dp" android:background="#100816"><ImageView android:layout_width="220dp" android:layout_height="220dp" android:src="@drawable/pontoufle_steampunk" android:contentDescription="Extra fluffy Pontoufle"/><TextView android:id="@+id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="PONTOUFLE IS LISTENING…" android:textColor="#FF8BD8" android:textStyle="bold" android:textSize="24sp" android:gravity="center"/><TextView android:id="@+id/transcript" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:text="Squish the mic and tell the fluff what you need." android:textColor="#FFFFFF" android:textSize="17sp" android:gravity="center"/><Button android:id="@+id/talk" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="🎙 SQUISH TO TALK" android:textSize="17sp"/><Button android:id="@+id/openMuse" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="OPEN MUSE ↗" android:textSize="15sp"/></LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#100816">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="28dp">
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="220dp"
+            android:src="@drawable/pontoufle_steampunk"
+            android:contentDescription="Extra fluffy Pontoufle"/>
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="PONTOUFLE ONLINE"
+            android:textColor="#FF8BD8"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/transcript"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Squish to speak to Muse. To hear a reply, copy its text in Muse and tap READ COPIED REPLY."
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            android:gravity="center"/>
+        <Button
+            android:id="@+id/talk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="🎙 SQUISH TO TALK"
+            android:textSize="17sp"/>
+        <Button
+            android:id="@+id/readReply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="🔊 READ COPIED REPLY"
+            android:textSize="16sp"/>
+        <Button
+            android:id="@+id/stopVoice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="STOP SPEAKING"
+            android:textSize="15sp"/>
+        <Button
+            android:id="@+id/openMuse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="OPEN MUSE ↗"
+            android:textSize="15sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Tip: If Muse offers Share on a reply, choose Pontoufle Intercom to hear it directly. Otherwise copy the reply and tap READ COPIED REPLY. No background access to Muse is required."
+            android:textColor="#D5BFD8"
+            android:textSize="13sp"
+            android:gravity="center"/>
+    </LinearLayout>
+</ScrollView>
